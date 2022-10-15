@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Proyectil",
 "language": "GDScript",
 "path": "res://juego/Naves/Proyectiles/Proyectil.gd"
+}, {
+"base": "Reference",
+"class": "RayoLaser",
+"language": "GDScript",
+"path": "res://juego/Naves/Proyectiles/Laser/LaserBeam2D.gd"
 } ]
 _global_script_class_icons={
 "Canion": "",
 "Nivel": "",
 "Player": "",
-"Proyectil": ""
+"Proyectil": "",
+"RayoLaser": ""
 }
 
 [application]

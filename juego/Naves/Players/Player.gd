@@ -6,7 +6,7 @@ export var potencia_rotacion: int = 50
 
 #atributos onready
 onready var canion: Canion = $Canion
-
+onready var laser:RayoLaser = $LaserBeam2D
 #Atributosv
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
