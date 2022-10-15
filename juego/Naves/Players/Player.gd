@@ -5,7 +5,7 @@ export var potencia_motor:int = 5
 export var potencia_rotacion: int = 50
 
 #atributos onready
-onready var canion:Canion = $Canion
+onready var canion: Canion = $Canion
 
 #Atributosv
 var empuje:Vector2 = Vector2.ZERO
