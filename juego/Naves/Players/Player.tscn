@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://juego/Naves/Players/playerShip1.png" type="Texture" id=1]
 [ext_resource path="res://juego/Naves/Players/MaterialFisico.tres" type="PhysicsMaterial" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://juego/Naves/Proyectiles/Laser/LaserBeam2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://juego/Naves/Players/Estela/Trail2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://juego/Naves/Players/MotorSFX.tscn" type="PackedScene" id=7]
+[ext_resource path="res://juego/musica/impacto.wav" type="AudioStream" id=8]
+[ext_resource path="res://juego/Naves/Players/Escudo/Escudo.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1108
@@ -101,6 +103,12 @@ target_path = NodePath("..")
 autoplay = "spawm"
 anims/defaul = SubResource( 3 )
 anims/spawm = SubResource( 4 )
+
+[node name="impacto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "impacto"
+
+[node name="Escudo" parent="." instance=ExtResource( 9 )]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

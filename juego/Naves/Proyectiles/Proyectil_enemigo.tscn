@@ -4,3 +4,5 @@
 
 [node name="Proyectil_enemigo" instance=ExtResource( 1 )]
 modulate = Color( 0.870117, 0.0705271, 0.0705271, 0.21 )
+collision_layer = 16
+collision_mask = 1

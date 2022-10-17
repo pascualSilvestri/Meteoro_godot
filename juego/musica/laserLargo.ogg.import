@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laserLargo.ogg-fddd989192705192aa29a03f3f3bd378.oggstr"
+
+[deps]
+
+source_file="res://juego/musica/laserLargo.ogg"
+dest_files=[ "res://.import/laserLargo.ogg-fddd989192705192aa29a03f3f3bd378.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

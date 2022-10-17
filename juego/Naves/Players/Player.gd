@@ -13,13 +13,14 @@ onready var canion: Canion = $Canion
 onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
+onready var escudo:Escudo = $Escudo
 	
 
 #Atributos
 var estado_actual:int = ESTADOS.SPAWM
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
-
+var hitpoints:float = 10.0
 
 ##metodos custom
 func controlador_estados(nuevo_estado:int)->void:
@@ -71,6 +72,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("mover_atras"):
 		estela.set_max_points(0)
 		motor_sfx.sonido_on()
+	#control de escudo
+	if event.is_action_pressed("escudo") and not escudo.get_esta_activado(escudo.esta_activado):
+		escudo.activar()
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
@@ -102,7 +106,11 @@ func player_input() -> void:
 	if Input.is_action_just_released("disparo_principal"):
 		canion.set_esta_disparando(false)
 
-
+func recibir_danio(danio:float)->void:
+	hitpoints -= danio
+	$impacto.play()
+	if hitpoints <= 0.0:
+		destruir()
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawm":
