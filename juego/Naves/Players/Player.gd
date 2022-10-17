@@ -19,7 +19,7 @@ onready var motor_sfx:Motor = $MotorSFX
 var estado_actual:int = ESTADOS.SPAWM
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
-
+var hitpoints:float = 10.0
 
 ##metodos custom
 func controlador_estados(nuevo_estado:int)->void:
@@ -102,7 +102,11 @@ func player_input() -> void:
 	if Input.is_action_just_released("disparo_principal"):
 		canion.set_esta_disparando(false)
 
-
+func recibir_danio(danio:float)->void:
+	hitpoints -= danio
+	$impacto.play()
+	if hitpoints <= 0.0:
+		destruir()
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawm":
