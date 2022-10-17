@@ -13,6 +13,7 @@ onready var canion: Canion = $Canion
 onready var laser:RayoLaser = $LaserBeam2D
 onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
+onready var escudo:Escudo = $Escudo
 	
 
 #Atributos
@@ -71,6 +72,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("mover_atras"):
 		estela.set_max_points(0)
 		motor_sfx.sonido_on()
+	#control de escudo
+	if event.is_action_pressed("escudo") and not escudo.get_esta_activado(escudo.esta_activado):
+		escudo.activar()
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
