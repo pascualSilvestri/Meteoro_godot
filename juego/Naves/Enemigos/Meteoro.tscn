@@ -605,6 +605,7 @@ gravity_scale = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 2 )
+vel_lineal_base = Vector2( 150, 150 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4, -4 )
