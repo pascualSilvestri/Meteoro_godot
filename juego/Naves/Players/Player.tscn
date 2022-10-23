@@ -27,7 +27,7 @@ linear_damp = 1.5
 angular_damp = 4.5
 script = ExtResource( 10 )
 potencia_motor = 18
-potencia_rotacion = 50
+potencia_rotacion = 200
 estela_maxima = 150
 
 [node name="Sprite" parent="." index="0"]

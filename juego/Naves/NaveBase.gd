@@ -22,7 +22,7 @@ var estado_actual:int = ESTADOS.SPAWM
 func controlador_estados(nuevo_estado:int)->void:
 	match nuevo_estado:
 		ESTADOS.SPAWM:
-			colisionador.set_deferred("disabled",true)
+			colisionador.set_deferred("disabled",false)
 			canion.set_puede_disparar(false)
 		ESTADOS.VIVO:
 			colisionador.set_deferred("disabled",false)

@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://juego/Naves/Proyectiles/Canion.gd"
 }, {
+"base": "RigidBody2D",
+"class": "EnemigoIntercepta",
+"language": "GDScript",
+"path": "res://EnemigoIntercepta.gd"
+}, {
+"base": "RigidBody2D",
+"class": "EnemigoInterceptor",
+"language": "GDScript",
+"path": "res://juego/Naves/Enemigos/NaveEnemiga/EnemigoInterceptor.gd"
+}, {
 "base": "Area2D",
 "class": "Escudo",
 "language": "GDScript",
@@ -93,6 +103,8 @@ _global_script_class_icons={
 "CamaraJuego": "",
 "CamaraPlayer": "",
 "Canion": "",
+"EnemigoIntercepta": "",
+"EnemigoInterceptor": "",
 "Escudo": "",
 "EstacionRecarga": "",
 "Estela": "",
