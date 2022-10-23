@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/recarga2.ogg-6c22454242c53d63dccf923d1341c014.oggstr"
+
+[deps]
+
+source_file="res://juego/musica/recarga2.ogg"
+dest_files=[ "res://.import/recarga2.ogg-6c22454242c53d63dccf923d1341c014.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

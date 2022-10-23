@@ -5,17 +5,24 @@ export var energia:float = 8.0
 export var radio_desgastes:float = -1.6
 
 var esta_activado:bool = false setget get_esta_activado
-
+var energia_original:float
 
 func _ready() -> void:
+	energia_original = energia	
 	set_process(false)
 	controlar_colisionador(true)
 
 func _process(delta: float) -> void:
-	energia += radio_desgastes * delta
-	
-	if energia <= 0.0:
+	controlar_energia(radio_desgastes * delta)
+
+func controlar_energia(consumo:float)->void:
+	energia += consumo
+	print("energia escudo",energia)
+	if energia > energia_original:
+		energia = energia_original
+	elif energia <= 0.0:
 		desactivar()
+
 
 func desactivar()->void:
 	set_process(false)

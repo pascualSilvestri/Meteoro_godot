@@ -10,10 +10,10 @@ export var estela_maxima:int=150
 #atributos onready
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var canion: Canion = $Canion
-onready var laser:RayoLaser = $LaserBeam2D
+onready var laser:RayoLaser = $LaserBeam2D setget, get_laser
 onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
-onready var escudo:Escudo = $Escudo
+onready var escudo:Escudo = $Escudo setget, get_escudo
 	
 
 #Atributos
@@ -21,6 +21,15 @@ var estado_actual:int = ESTADOS.SPAWM
 var empuje:Vector2 = Vector2.ZERO
 var dir_rotacion:int = 0
 var hitpoints:float = 10.0
+
+
+
+#settergetter
+func get_laser()->RayoLaser:
+	return laser
+
+func get_escudo()->Escudo:
+	return escudo
 
 ##metodos custom
 func controlador_estados(nuevo_estado:int)->void:

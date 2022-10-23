@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://juego/Naves/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://juego/Naves/Enemigos/Meteoros/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://juego/Fondos/negro.png" type="Texture" id=9]
 [ext_resource path="res://juego/Niveles/CamaraJuego.gd" type="Script" id=10]
+[ext_resource path="res://juego/Naves/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=11]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -43,5 +44,8 @@ script = ExtResource( 10 )
 [node name="TweenZoom" type="Tween" parent="CameraNivel"]
 
 [node name="TweenCamara" type="Tween" parent="."]
+
+[node name="EstacionRecarga" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1536, 336 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
