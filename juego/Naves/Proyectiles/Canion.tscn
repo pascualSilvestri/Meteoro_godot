@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 proyectil = ExtResource( 2 )
 cadencia_disparo = 0.2
-velocidad_proyectil = 900
+velocidad_proyectil = 1200
 
 [node name="PuntoDerecho" type="Position2D" parent="."]
 position = Vector2( 0, -15 )
