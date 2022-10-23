@@ -44,8 +44,8 @@ func controlador_estados(nuevo_estado:int)->void:
 			colisionador.set_deferred("disabled",true)
 		ESTADOS.MUERTO:
 			colisionador.set_deferred("disabled",true)
-			Eventos.emit_signal("nave_destruida",global_position,3)
-			canion.set_puede_disparar(true)
+			Eventos.emit_signal("nave_destruida",self,global_position,3)
+			canion.set_puede_disparar(false)
 			
 			queue_free()
 		_:
