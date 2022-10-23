@@ -5,19 +5,23 @@ export var explosion:PackedScene = null
 export var meteorito:PackedScene = null
 export var explocion_meteorito: PackedScene = null
 export var sector_meteoritos:PackedScene = null
+export var enemigo_interceptor:PackedScene = null
 export var tiempo_transicion_camara:float = 0.7
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
 onready var contenedor_sector_meteoritos:Node
 onready var camara_nivel:Camera2D = $CameraNivel
+onready var contenedor_enemigo:Node
 
 var meteoritos_totales:int = 0
+var player:Player = null
 
 #metodo custom #metodos
 func _ready() -> void:
 	conectar_seniale()
 	crear_contenedores()
+	player = DatosJuego.get_player_actual()
 
 func conectar_seniale() -> void:
 	Eventos.connect("disparo",self,"_on_disparo")
@@ -38,6 +42,10 @@ func crear_contenedores() -> void:
 	contenedor_sector_meteoritos = Node.new()
 	contenedor_sector_meteoritos.name = "ContenedorSectorMeteoritos"
 	add_child(contenedor_sector_meteoritos)
+	
+	contenedor_enemigo = Node.new()
+	contenedor_enemigo.name = "ContenedorEnemigo"
+	add_child(contenedor_enemigo)
 
 func _on_disparo(proyectil:Proyectil) -> void:
 	contenedor_proyectiles.add_child(proyectil)
@@ -74,7 +82,7 @@ func _on_nave_en_sector_peligro(centro_cam:Vector2,tipo_peligro:String,num_pelig
 	if tipo_peligro == "Meteorite":
 		crear_sector_meteoritos(centro_cam,num_peligro)
 	elif tipo_peligro == "Enemy":
-		pass
+		crear_sector_enemigo(num_peligro)
 
 func crear_sector_meteoritos(centro_cam:Vector2,num_peligro:int)->void:
 	meteoritos_totales = num_peligro
@@ -105,7 +113,15 @@ func controlar_meteoritos_restantes()->void:
 			$Player/CameraPlayer.global_position,
 			$Player/CameraPlayer,tiempo_transicion_camara*0.10
 		)
+
+func crear_sector_enemigo(num_enemigo)->void:
+	for i in range(num_enemigo):
+		var new_interceptor:EnemigoInterceptor = enemigo_interceptor.instance()
+		var spawn_pos:Vector2 = crear_posicion_aleatoria(1000.0,800.0)
+		new_interceptor.global_position = player.global_position +spawn_pos
+		contenedor_enemigo.add_child(new_interceptor)
 	
+
 func transicion_camara(desde:Vector2,hasta:Vector2,camara_actual:Camera2D,tiempo_transicion:float)->void:
 	$TweenCamara.interpolate_property(
 		camara_actual,"global_position",
@@ -117,7 +133,7 @@ func transicion_camara(desde:Vector2,hasta:Vector2,camara_actual:Camera2D,tiempo
 	)
 	camara_actual.current = true
 	$TweenCamara.start()
-	
+
 
 func crear_posicion_aleatoria(rango_horizontal:float,rango_vertical:float)->Vector2:
 	randomize()

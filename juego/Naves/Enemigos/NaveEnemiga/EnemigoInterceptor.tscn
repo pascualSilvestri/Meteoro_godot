@@ -77,12 +77,13 @@ radius = 326.014
 z_index = 50
 z_as_relative = false
 collision_layer = 2
-collision_mask = 13
+collision_mask = 15
 physics_material_override = SubResource( 7 )
 gravity_scale = 0.0
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 3 )
+potencia_max = 500.0
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
@@ -115,3 +116,8 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
 visible = false
 shape = SubResource( 3 )
+
+[connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]
+[connection signal="body_exited" from="AreaDisparo" to="." method="_on_AreaDisparo_body_exited"]
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_entered"]
+[connection signal="body_exited" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_exited"]

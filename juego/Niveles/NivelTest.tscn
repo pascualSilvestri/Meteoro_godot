@@ -20,6 +20,7 @@ explosion = ExtResource( 5 )
 meteorito = ExtResource( 7 )
 explocion_meteorito = ExtResource( 8 )
 sector_meteoritos = ExtResource( 6 )
+enemigo_interceptor = ExtResource( 13 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 472.5, 358 )
@@ -32,9 +33,16 @@ environment = ExtResource( 3 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 4 )]
-position = Vector2( 962, 538 )
+position = Vector2( 2542, 1488 )
 tipo_Peligro = "Meteorite"
 numero_peligros = 4
+
+[node name="TriggersInterseptor" type="Node" parent="."]
+
+[node name="SectorDePeligro" parent="TriggersInterseptor" instance=ExtResource( 4 )]
+position = Vector2( 320, 150 )
+tipo_Peligro = "Enemy"
+numero_peligros = 5
 
 [node name="CameraNivel" type="Camera2D" parent="."]
 script = ExtResource( 10 )
@@ -49,9 +57,6 @@ position = Vector2( 1536, 336 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 530, 260 )
-
-[node name="EnemigoInterceptor" parent="." instance=ExtResource( 13 )]
-position = Vector2( 120, 550 )
+position = Vector2( 490, 680 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
