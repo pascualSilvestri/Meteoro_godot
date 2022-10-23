@@ -49,9 +49,9 @@ position = Vector2( 1536, 336 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 410, 330 )
+position = Vector2( 530, 260 )
 
 [node name="EnemigoInterceptor" parent="." instance=ExtResource( 13 )]
-position = Vector2( 180, 170 )
+position = Vector2( 120, 550 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

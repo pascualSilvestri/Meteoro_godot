@@ -14,10 +14,6 @@ onready var canion: Canion = $Canion
 #Atributos
 var estado_actual:int = ESTADOS.SPAWM
 
-
-
-
-
 ##metodos custom
 func controlador_estados(nuevo_estado:int)->void:
 	match nuevo_estado:

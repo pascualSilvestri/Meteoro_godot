@@ -22,6 +22,9 @@ func get_laser()->RayoLaser:
 func get_escudo()->Escudo:
 	return escudo
 
+func _ready() -> void:
+	DatosJuego.set_player_actual(self)
+
 func _unhandled_input(event: InputEvent) -> void:
 	#disparo segundario
 	if not esta_input_activo():

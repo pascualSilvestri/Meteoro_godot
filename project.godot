@@ -24,12 +24,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://juego/Naves/Proyectiles/Canion.gd"
 }, {
-"base": "RigidBody2D",
+"base": "NaveBase",
 "class": "EnemigoIntercepta",
 "language": "GDScript",
 "path": "res://EnemigoIntercepta.gd"
 }, {
-"base": "RigidBody2D",
+"base": "NaveBase",
 "class": "EnemigoInterceptor",
 "language": "GDScript",
 "path": "res://juego/Naves/Enemigos/NaveEnemiga/EnemigoInterceptor.gd"
@@ -129,6 +129,7 @@ config/icon="res://juego/Naves/Players/playerShip1.png"
 [autoload]
 
 Eventos="*res://juego/Autoloads/Eventos.gd"
+DatosJuego="*res://juego/Autoloads/DatosJuego.gd"
 
 [display]
 

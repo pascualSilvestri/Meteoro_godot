@@ -85,9 +85,8 @@ contact_monitor = true
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-modulate = Color( 0.217773, 0.163117, 0.163117, 1 )
 rotation = 1.5708
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
