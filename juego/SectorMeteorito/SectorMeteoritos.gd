@@ -45,3 +45,15 @@ func _on_SpawnTimer_timeout() -> void:
 
 func _on_detector_body_entered(body: Node) -> void:
 	body.set_esta_en_sector(false)
+
+
+func _on_DetectorDerecho_body_entered(body: Node) -> void:
+	body.set_esta_en_sector(false)
+
+
+func _on_DetectorSuperior_body_entered(body: Node) -> void:
+	body.set_esta_en_sector(false)
+
+
+func _on_DetectorInferior_body_entered(body: Node) -> void:
+	body.set_esta_en_sector(false)
