@@ -35,10 +35,6 @@ func controlador_estados_ia(nuevo_estado:int)->void:
 
 
 
-
-
-
-
 func _on_AreaDisparo_body_entered(body: Node) -> void:
 	controlador_estados_ia(ESTADO_IA.ATANANDOP)
 
