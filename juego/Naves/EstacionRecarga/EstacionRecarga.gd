@@ -55,11 +55,13 @@ func _on_AreaRecarga_body_entered(body: Node) -> void:
 	player_en_zona = true
 	if body is Player:
 		nave_player = body
-	body.set_gravity_scale(0.1)
+	
 	
 
 func _on_AreaRecarga_body_exited(body: Node) -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("defaul")
-	body.set_gravity_scale(0.0)
 	player_en_zona = false
+
+
+

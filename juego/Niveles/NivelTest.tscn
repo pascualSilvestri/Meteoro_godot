@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://juego/Naves/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://juego/Naves/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=11]
 [ext_resource path="res://juego/Niveles/fondo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/EnemigoInterceptor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=14]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
@@ -23,7 +24,7 @@ sector_meteoritos = ExtResource( 6 )
 enemigo_interceptor = ExtResource( 13 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 472.5, 358 )
+position = Vector2( 573, 268 )
 scale = Vector2( 20.7539, 12.1797 )
 texture = ExtResource( 9 )
 
@@ -33,7 +34,7 @@ environment = ExtResource( 3 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 4 )]
-position = Vector2( 2542, 1488 )
+position = Vector2( 1382, 958 )
 tipo_Peligro = "Meteorite"
 numero_peligros = 4
 
@@ -58,5 +59,8 @@ position = Vector2( 1536, 336 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 490, 680 )
+
+[node name="BaseEnemiga" parent="." instance=ExtResource( 14 )]
+position = Vector2( 960, 40 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
