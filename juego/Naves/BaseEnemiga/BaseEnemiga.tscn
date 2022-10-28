@@ -150,6 +150,7 @@ tracks/1/keys = {
 }
 
 [node name="BaseEnemiga" type="Node2D"]
+scale = Vector2( 0.8, 0.8 )
 z_index = 30
 z_as_relative = false
 script = ExtResource( 6 )
