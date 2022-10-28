@@ -3,6 +3,7 @@ extends Node2D
 
 
 export var hitpoints:float = 30.0
+export var orbital:PackedScene = null
 
 onready var impacto_SFX:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -41,3 +42,11 @@ func elegir_animacion_aleatoria()->String:
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
 		body.destruir()
+
+
+func _on_VisibilityNotifier2D_screen_entered() -> void:
+	$VisibilityNotifier2D.queue_free()
+	
+	var new_orbital:EnemigoOrbita = orbital.instance()
+	new_orbital.crear(global_position + $PosicionesSpawn/Norte.global_position,self)
+	Eventos.emit_signal("spawn_orbital",new_orbital)

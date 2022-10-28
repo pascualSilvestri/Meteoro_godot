@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://juego/Naves/EstacionRecarga/AreaRecarga.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Naves/BaseEnemiga/enemigaBase.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.gd" type="Script" id=6]
 [ext_resource path="res://juego/musica/impacto.wav" type="AudioStream" id=7]
 [ext_resource path="res://juego/Naves/BaseEnemiga/AreaColision.gd" type="Script" id=8]
+[ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/NaveObita.tscn" type="PackedScene" id=9]
+[ext_resource path="res://juego/Naves/BaseEnemiga/PosicionesSpawn.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 32.0
@@ -148,10 +150,10 @@ tracks/1/keys = {
 }
 
 [node name="BaseEnemiga" type="Node2D"]
-rotation = 0.281856
 z_index = 30
 z_as_relative = false
 script = ExtResource( 6 )
+orbital = ExtResource( 9 )
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -214,6 +216,22 @@ visible = false
 [node name="CollisionShape2D" parent="AreaRecarga" index="1"]
 visible = false
 
+[node name="PosicionesSpawn" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Norte" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 0, -700 )
+
+[node name="Sur" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 0, 600 )
+
+[node name="Este" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( 600, 0 )
+
+[node name="Oeste" type="Position2D" parent="PosicionesSpawn"]
+position = Vector2( -600, 0 )
+
 [connection signal="body_entered" from="AreaColision" to="." method="_on_AreaColision_body_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 
 [editable path="AreaRecarga"]

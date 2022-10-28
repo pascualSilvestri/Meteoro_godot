@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://juego/Naves/NaveBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/orbita.png" type="Texture" id=2]
+[ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/NaveObita.gd" type="Script" id=3]
+[ext_resource path="res://juego/Naves/Proyectiles/Proyectil_enemigo.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 39.0
+height = 54.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "spawm"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0352941, 0.00784314, 0.00784314, 1 ), Color( 0.109804, 0.0431373, 0.0431373, 1 ), Color( 0.948242, 0.0287066, 0.0287066, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="NaveObita" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 9
+mode = 3
+gravity_scale = 0.0
+contacts_reported = 2
+contact_monitor = true
+script = ExtResource( 3 )
+rango_max_ataque = 600.0
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+z_index = 30
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Canion" parent="." index="2"]
+proyectil = ExtResource( 4 )
+cadencia_disparo = 0.8
+velocidad_proyectil = 1600
+
+[node name="PuntoDerecho" parent="Canion" index="0"]
+position = Vector2( 40, -25 )
+
+[node name="PuntoIzquierdo" parent="Canion" index="1"]
+position = Vector2( 40, 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+autoplay = "spawm"
+anims/spawm = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="Canion"]
