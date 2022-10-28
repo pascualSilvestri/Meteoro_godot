@@ -34,14 +34,14 @@ environment = ExtResource( 3 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 4 )]
-position = Vector2( 1382, 958 )
+position = Vector2( -1063, 1305 )
 tipo_Peligro = "Meteorite"
 numero_peligros = 4
 
 [node name="TriggersInterseptor" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersInterseptor" instance=ExtResource( 4 )]
-position = Vector2( -951, -310 )
+position = Vector2( -1058, 897 )
 tipo_Peligro = "Enemy"
 numero_peligros = 5
 
@@ -53,7 +53,7 @@ script = ExtResource( 10 )
 [node name="TweenCamara" type="Tween" parent="."]
 
 [node name="EstacionRecarga" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1536, 336 )
+position = Vector2( -1192, -124 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
