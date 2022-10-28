@@ -4,12 +4,17 @@ extends Node2D
 
 export var hitpoints:float = 30.0
 export var orbital:PackedScene = null
+export var numero_orbital:int = 10
+export var intervalo_spawn:float = 0.8
 
 onready var impacto_SFX:AudioStreamPlayer2D = $AudioStreamPlayer2D
+onready var timer_spawn:Timer = $TimerSpawnEnemigo
 
 var esta_destruido:bool = false
+var posicion_spawn:Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	timer_spawn.wait_time = intervalo_spawn
 	$AnimationPlayer.play(elegir_animacion_aleatoria())
 
 func recibir_danio(danio:float)->void:
@@ -39,10 +44,11 @@ func elegir_animacion_aleatoria()->String:
 	return lista_animacion[indice_anim_aleatoria]
 
 func spawnear_orbital()->void:
-	var pos_spawn:Vector2 = deteccion_cuadrante()
+	numero_orbital -=1
+	$RutaEnemiga.global_position = global_position
 	
 	var new_orbital:EnemigoOrbita = orbital.instance()
-	new_orbital.crear(global_position + pos_spawn,self)
+	new_orbital.crear(global_position + posicion_spawn,self,$RutaEnemiga)
 	Eventos.emit_signal("spawn_orbital",new_orbital)
 
 func deteccion_cuadrante()->Vector2:
@@ -55,13 +61,17 @@ func deteccion_cuadrante()->Vector2:
 	var angulo_player:float = rad2deg(dir_player.angle())
 	
 	if abs(angulo_player) <= 45.0:
+		$RutaEnemiga.rotation_degrees =180.0
 		return $PosicionesSpawn/Este.position
 	elif abs(angulo_player) > 135.0 and abs(angulo_player) <=180.0:
+		$RutaEnemiga.rotation_degrees = 0.0
 		return $PosicionesSpawn/Oeste.position
 	elif abs(angulo_player) > 45 and abs(angulo_player) <=135:
 		if abs(angulo_player) > 0:
+			$RutaEnemiga.rotation_degrees = 270.0
 			return $PosicionesSpawn/Sur.position
 		else:
+			$RutaEnemiga.rotation_degrees = 90.0
 			return $PosicionesSpawn/Norte.position
 	return $PosicionesSpawn/Norte.position
 	
@@ -80,7 +90,14 @@ func _on_AreaColision_body_entered(body: Node) -> void:
 
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	$VisibilityNotifier2D.queue_free()
+	posicion_spawn = deteccion_cuadrante()
 	spawnear_orbital()
-	#var new_orbital:EnemigoOrbita = orbital.instance()
-	#new_orbital.crear(global_position + $PosicionesSpawn/Norte.global_position,self)
-	#Eventos.emit_signal("spawn_orbital",new_orbital)
+	timer_spawn.start()
+	
+
+
+func _on_TimerSpawnEnemigo_timeout() -> void:
+	if numero_orbital == 0:
+		timer_spawn.stop()
+		return
+	spawnear_orbital()

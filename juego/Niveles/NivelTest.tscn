@@ -41,7 +41,7 @@ numero_peligros = 4
 [node name="TriggersInterseptor" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersInterseptor" instance=ExtResource( 4 )]
-position = Vector2( 320, 150 )
+position = Vector2( -951, -310 )
 tipo_Peligro = "Enemy"
 numero_peligros = 5
 
