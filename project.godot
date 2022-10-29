@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://juego/Naves/Proyectiles/Canion.gd"
 }, {
+"base": "NinePatchRect",
+"class": "ContenedorInformacion",
+"language": "GDScript",
+"path": "res://juego/UI/HUD/ContenedorInformacion.gd"
+}, {
+"base": "NinePatchRect",
+"class": "ContenedorInformacionEnergia",
+"language": "GDScript",
+"path": "res://juego/UI/HUD/ContenedorInformacionEnergia.gd"
+}, {
 "base": "EnemigoInterceptor",
 "class": "EnemigoIntercepta",
 "language": "GDScript",
@@ -119,6 +129,8 @@ _global_script_class_icons={
 "CamaraJuego": "",
 "CamaraPlayer": "",
 "Canion": "",
+"ContenedorInformacion": "",
+"ContenedorInformacionEnergia": "",
 "EnemigoIntercepta": "",
 "EnemigoInterceptor": "",
 "EnemigoOrbita": "",

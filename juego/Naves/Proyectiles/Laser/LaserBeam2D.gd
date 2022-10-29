@@ -48,6 +48,7 @@ func set_is_casting(cast: bool) -> void:
 		fill.points[1] = cast_to
 		appear()
 	else:
+		Eventos.emit_signal("ocultar_energia_laser")
 		laser.stop()
 		collision_particles.emitting = false
 		disappear()
@@ -55,6 +56,16 @@ func set_is_casting(cast: bool) -> void:
 	set_physics_process(is_casting)
 	beam_particles.emitting = is_casting
 	casting_particles.emitting = is_casting
+
+
+
+
+
+
+
+
+
+
 
 
 func cast_beam(delta:float) -> void:
@@ -79,11 +90,15 @@ func cast_beam(delta:float) -> void:
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 
+
+
 func controlar_energia(consumo:float)->void:
 	energia += consumo
 	if energia > energia_original:
 		energia = energia_original
+	Eventos.emit_signal("cambio_energia_laser",energia_original,energia)
 	print("energia laser",energia)
+
 
 func appear() -> void:
 	if tween.is_active():

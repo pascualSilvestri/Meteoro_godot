@@ -15,16 +15,24 @@ var player_en_zona:bool =false
 func _ready() -> void:
 	pass 
 
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	
 	if not puede_recargar(event):
 		return
+		
 	controlar_energia()
 	
 	if event.is_action("recarga_escudo"):
 		nave_player.get_escudo().controlar_energia(radio_energia_entregada)
 	elif event.is_action("recarga_laser"):
 		nave_player.get_laser().controlar_energia(radio_energia_entregada)
+	
+	if event.is_action_released("recarga_escudo"):
+		Eventos.emit_signal("ocultar_energia_laser")
+	elif event.is_action_released("recarga_laser"):
+		Eventos.emit_signal("ocultar_energia_escudo")
 
 
 func controlar_energia()->void:
@@ -51,17 +59,18 @@ func _on_AreaColision_body_entered(body: Node) -> void:
 
 
 func _on_AreaRecarga_body_entered(body: Node) -> void:
-	$AnimationPlayer.play("activada")
-	player_en_zona = true
 	if body is Player:
+		player_en_zona = true
 		nave_player = body
-	
-	
+		Eventos.emit_signal("detecto_zona_recarga",true)
+	$AnimationPlayer.play("activada")
 
 func _on_AreaRecarga_body_exited(body: Node) -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("defaul")
-	player_en_zona = false
+	if body is Player:
+		player_en_zona = false
+		Eventos.emit_signal("detecto_zona_recarga",false)
 
 
 
