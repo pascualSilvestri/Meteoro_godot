@@ -80,3 +80,10 @@ func esta_input_activo() ->bool:
 	if estado_actual in [ESTADOS.MUERTO,ESTADOS.SPAWM]:
 		return false
 	return true
+
+
+func desactivar_controles()->void:
+	controlador_estados(ESTADOS.SPAWM)
+	empuje = Vector2.ZERO
+	motor_sfx.sonido_off()
+	laser.set_is_casting(false)

@@ -240,9 +240,9 @@ position = Vector2( 600, 0 )
 position = Vector2( -600, 0 )
 
 [node name="RutaEnemiga" type="Path2D" parent="."]
-position = Vector2( -121.137, 301.509 )
+position = Vector2( -172.176, 298.461 )
 rotation = 2.01411
-scale = Vector2( 2.45614, 2.67835 )
+scale = Vector2( 2.30964, 2.30487 )
 curve = SubResource( 8 )
 script = ExtResource( 11 )
 

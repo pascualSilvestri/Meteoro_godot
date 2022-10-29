@@ -32,7 +32,7 @@ func destruir()->void:
 		$Sprites/Sprite3.global_position,
 		$Sprites/Sprite4.global_position
 	]
-	Eventos.emit_signal("base_destruida",self,posision_partes)
+	Eventos.emit_signal("base_destruida",posision_partes) # le saque el self y me funciona, le coloco y no funcionas
 	queue_free()
 
 func elegir_animacion_aleatoria()->String:

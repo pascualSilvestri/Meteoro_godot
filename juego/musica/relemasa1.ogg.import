@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/relemasa1.ogg-2bbf9b8ba96d8071f659a93b403111e1.oggstr"
+
+[deps]
+
+source_file="res://juego/musica/relemasa1.ogg"
+dest_files=[ "res://.import/relemasa1.ogg-2bbf9b8ba96d8071f659a93b403111e1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

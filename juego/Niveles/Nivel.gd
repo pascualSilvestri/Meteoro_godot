@@ -6,7 +6,8 @@ export var meteorito:PackedScene = null
 export var explocion_meteorito: PackedScene = null
 export var sector_meteoritos:PackedScene = null
 export var enemigo_interceptor:PackedScene = null
-export var tiempo_transicion_camara:float = 0.7
+export var rele_masa:PackedScene = null
+export var tiempo_transicion_camara:float = 2.0
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
@@ -16,12 +17,14 @@ onready var contenedor_enemigo:Node
 
 var meteoritos_totales:int = 0
 var player:Player = null
+var numero_base_enemigas = 0	
 
 #metodo custom #metodos
 func _ready() -> void:
 	conectar_seniale()
 	crear_contenedores()
 	player = DatosJuego.get_player_actual()
+	numero_base_enemigas = contabilizar_bases_enemigas()
 
 func conectar_seniale() -> void:
 	Eventos.connect("disparo",self,"_on_disparo")
@@ -69,8 +72,11 @@ func _on_nave_destruida(nave:Player, posicion:Vector2,num_explosiones:int)->void
 
 func _on_base_destruida(pos_parte:Array)->void:
 	for posicion in pos_parte:
-		crear_explosion(posicion)
+		crear_explosion(posicion,2.0)
 		yield(get_tree().create_timer(0.5),"timeout")
+	numero_base_enemigas -=1
+	if numero_base_enemigas == 0:
+		crear_rele()
 
 func crear_explosion(
 	posicion:Vector2,
@@ -104,9 +110,6 @@ func _on_nave_en_sector_peligro(centro_cam:Vector2,tipo_peligro:String,num_pelig
 	elif tipo_peligro == "Enemy":
 		crear_sector_enemigo(num_peligro)
 
-
-
-	
 
 func crear_sector_meteoritos(centro_cam:Vector2,num_peligro:int)->void:
 	meteoritos_totales = num_peligro
@@ -165,6 +168,13 @@ func crear_posicion_aleatoria(rango_horizontal:float,rango_vertical:float)->Vect
 	var rand_y = rand_range(-rango_vertical,rango_vertical)
 	return Vector2(rand_x,rand_y)
 	
+func crear_rele()->void:
+	var new_rele_masa:ReleMasa = rele_masa.instance()
+	new_rele_masa.global_position = player.global_position + crear_posicion_aleatoria(1000.0,800.0)
+	add_child(new_rele_masa)
+	
+func contabilizar_bases_enemigas()->int:
+	return $ContenedorBaseEnemiga.get_child_count()
 
 func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:
 	if object.name == "CamaraPlayer":

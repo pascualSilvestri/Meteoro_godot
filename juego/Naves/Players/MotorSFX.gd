@@ -24,7 +24,7 @@ func sonido_off() -> void:
 func efecto_transicion(desde_vol:float,hasta_vol:float) -> void:
 	twee_sonido.interpolate_property(
 		self,
-		"volumen_db",
+		"volume_db",
 		desde_vol,
 		hasta_vol,
 		tiempo_transicion,
