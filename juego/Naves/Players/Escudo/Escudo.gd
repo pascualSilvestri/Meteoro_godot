@@ -24,17 +24,8 @@ func controlar_energia(consumo:float)->void:
 		Eventos.emit_signal("ocultar_energia_escudo")
 		desactivar()
 		return
-	Eventos.emit_signal("ocultar_energia_escudo",energia_original,energia)
-
-
-
-
-
-
-
-
-
-
+		
+	Eventos.emit_signal("cambio_energia_escudo",energia_original,energia)
 
 
 func desactivar()->void:

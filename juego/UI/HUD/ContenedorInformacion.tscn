@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=8]
 resource_name = "defaul"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -90,6 +90,7 @@ font_data = ExtResource( 2 )
 default_font = SubResource( 1 )
 
 [node name="ContenedorInformacion" type="NinePatchRect"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 30.0
 margin_top = 31.0
@@ -111,6 +112,7 @@ anims/ocultar = SubResource( 6 )
 anims/ocultar_suavisado = SubResource( 7 )
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 159.0
 margin_bottom = 72.0
 theme = SubResource( 2 )

@@ -52,6 +52,22 @@ position = Vector2( -1058, 897 )
 tipo_Peligro = "Enemy"
 numero_peligros = 5
 
+[node name="ContenedorBaseEnemiga" type="Node" parent="."]
+
+[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" groups=["minimapa"] instance=ExtResource( 14 )]
+position = Vector2( -190, -1477 )
+
+[node name="BaseEnemiga2" parent="ContenedorBaseEnemiga" groups=["minimapa"] instance=ExtResource( 14 )]
+position = Vector2( 39.0001, 3016 )
+
+[node name="ContenedorEstacion" type="Node" parent="."]
+
+[node name="EstacionRecarga" parent="ContenedorEstacion" groups=["minimapa"] instance=ExtResource( 16 )]
+position = Vector2( 2699, -1244 )
+
+[node name="EstacionRecarga2" parent="ContenedorEstacion" groups=["minimapa"] instance=ExtResource( 16 )]
+position = Vector2( 2954, 2240 )
+
 [node name="CameraNivel" type="Camera2D" parent="."]
 script = ExtResource( 10 )
 
@@ -61,20 +77,12 @@ script = ExtResource( 10 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
-[node name="ContenedorBaseEnemiga" type="Node" parent="."]
-
-[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" instance=ExtResource( 14 )]
-position = Vector2( 792, -226 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 490, 680 )
 
 [node name="RestarNivel" type="Timer" parent="."]
 
 [node name="ActualizarTimer" type="Timer" parent="."]
-
-[node name="EstacionRecarga" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1850, 720 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
 [connection signal="timeout" from="RestarNivel" to="." method="_on_RestarNivel_timeout"]

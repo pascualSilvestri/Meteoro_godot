@@ -4,7 +4,7 @@ onready var info_zona_recarga:ContenedorInformacion = $InfoZonaRegarga
 onready var info_meteoritos:ContenedorInformacion = $InfoMeteoritos
 onready var info_tiempo_restante:ContenedorInformacion = $InfoTiempoResta
 onready var info_laser:ContenedorInformacionEnergia = $InfoLaser
-onready var info_escudo:ContenedorInformacionEnergia = $inforEscudo
+onready var info_escudo:ContenedorInformacionEnergia = $infoEscudo
 
 func _ready() -> void:
 	conectar_seniales()
@@ -59,7 +59,7 @@ func _on_actualizar_energia_laser(energian_max:float,energia_actual:float)->void
 	info_laser.actualizar_energia(energian_max,energia_actual)
 
 
-func _on_actualizar_energia_escudo(energian_max:float,energia_actual:float)->void:
+func _on_actualizar_energia_escucdo(energian_max:float,energia_actual:float)->void:
 	info_escudo.mostrar()
 	info_escudo.actualizar_energia(energian_max,energia_actual)
 
