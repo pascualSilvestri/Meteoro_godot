@@ -25,6 +25,7 @@ func _ready() -> void:
 	crear_contenedores()
 	player = DatosJuego.get_player_actual()
 	numero_base_enemigas = contabilizar_bases_enemigas()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func conectar_seniale() -> void:
 	Eventos.connect("disparo",self,"_on_disparo")
@@ -170,9 +171,18 @@ func crear_posicion_aleatoria(rango_horizontal:float,rango_vertical:float)->Vect
 	
 func crear_rele()->void:
 	var new_rele_masa:ReleMasa = rele_masa.instance()
-	new_rele_masa.global_position = player.global_position + crear_posicion_aleatoria(1000.0,800.0)
+	var pos_aleatoria = crear_posicion_aleatoria(400.0,200.0)
+	var margen:Vector2 = Vector2(600.0,600.0)
+	if pos_aleatoria.x < 0:
+		margen.x *= -1
+	if pos_aleatoria.y < 0:
+		margen.y *= -1
+	new_rele_masa.global_position = player.global_position + (margen + pos_aleatoria)
 	add_child(new_rele_masa)
-	
+
+
+
+
 func contabilizar_bases_enemigas()->int:
 	return $ContenedorBaseEnemiga.get_child_count()
 

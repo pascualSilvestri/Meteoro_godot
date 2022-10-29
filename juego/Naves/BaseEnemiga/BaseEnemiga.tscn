@@ -162,6 +162,8 @@ z_index = 30
 z_as_relative = false
 script = ExtResource( 6 )
 orbital = ExtResource( 9 )
+numero_orbital = 8
+intervalo_spawn = 1.5
 
 [node name="Sprites" type="Node2D" parent="."]
 

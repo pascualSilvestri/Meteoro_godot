@@ -16,6 +16,7 @@
 [ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=14]
 
 [node name="NivelTest" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 2 )
 explosion = ExtResource( 5 )
 meteorito = ExtResource( 7 )

@@ -4,12 +4,15 @@ extends NaveBase
 
 var player_objetivo:Player = null
 var dir_player:Vector2
+var frame_actual:int = 0
 
 func _ready() -> void:
 	player_objetivo = DatosJuego.get_player_actual()
 	Eventos.connect("nave_destruida",self,"_on_nave_destruidad")
 
 func _physics_process(delta: float) -> void:
+	frame_actual += 1
+	if frame_actual % 3 ==0:
 		rotar_hacia_jugador()
 
 func _on_nave_destruidad(nave:NaveBase,posicion,explosiones)->void:
