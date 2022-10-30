@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func recibir_danio(danio:float)->void:
 	hitpoints -= danio
+	
 	if hitpoints <= 0 and not esta_destruido:
 		esta_destruido = true
 		destruir()
@@ -33,6 +34,7 @@ func destruir()->void:
 		$Sprites/Sprite4.global_position
 	]
 	Eventos.emit_signal("base_destruida",posision_partes) # le saque el self y me funciona, le coloco y no funcionas
+	Eventos.emit_signal("minimapa_objeto_destruido",self)
 	queue_free()
 
 func elegir_animacion_aleatoria()->String:

@@ -110,14 +110,12 @@ margin_top = 2.0
 margin_bottom = 74.0
 
 [node name="InfoLaser" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
-visible = true
 margin_left = 1693.0
 margin_top = 946.0
 margin_right = 1852.0
 margin_bottom = 1023.0
 
 [node name="infoEscudo" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
-visible = true
 margin_left = 1693.0
 margin_top = 852.0
 margin_right = 1852.0
