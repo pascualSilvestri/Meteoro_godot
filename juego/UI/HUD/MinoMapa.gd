@@ -1,10 +1,11 @@
 extends MarginContainer
 
 export var escala_zoom:float = 4.0
-
+export var tiempo_visible:float =5.0
 
 var escala_grilla:Vector2
 var player:Player = null
+var esta_visible:bool = true setget set_esta_visible
 
 onready var zona_renderizado:TextureRect = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa
 onready var icono_player:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoPlayer
@@ -12,7 +13,32 @@ onready var icono_base:Sprite =$CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderiz
 onready var icono_estacion:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoBaseRecarga
 onready var icono_rele:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoRele
 onready var icono_interceptor:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoInterceptor
+onready var timer_visible:Timer = $TimerVisibilidad
+onready var tween_visible:Tween = $TweenVisibilidad
 onready var items_mini_mapa:Dictionary = {}
+
+
+#setterGetter
+
+func set_esta_visible(hacer_visible)->void:
+	if hacer_visible:
+		timer_visible.start()
+	
+	esta_visible = hacer_visible
+	tween_visible.interpolate_property(
+		self,
+		"modulate",
+		Color(1,1,1,not hacer_visible),
+		Color(1,1,1,hacer_visible),
+		0.5,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT
+	)
+	tween_visible.start()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Act-Des_MiniMapa"):
+		set_esta_visible(not esta_visible)
 
 func _ready() -> void:
 	set_process(false)
@@ -87,3 +113,8 @@ func quitar_icono(objeto:Node2D)->void:
 	if objeto in items_mini_mapa:
 		items_mini_mapa[objeto].queue_free()
 		items_mini_mapa.erase(objeto)
+
+
+func _on_TimerVisibilidad_timeout() -> void:
+	if esta_visible:
+		set_esta_visible(false)

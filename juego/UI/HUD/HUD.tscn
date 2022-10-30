@@ -55,7 +55,7 @@ tracks/0/keys = {
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="fadeCanvas" type="CanvasLayer" parent="."]
+[node name="fadeCanvas" type="CanvasLayer" parent="." groups=["contenedor_info"]]
 
 [node name="ColorRect" type="ColorRect" parent="fadeCanvas"]
 modulate = Color( 1, 1, 1, 0 )

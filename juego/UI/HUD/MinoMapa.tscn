@@ -69,3 +69,10 @@ position = Vector2( 209, 106 )
 rotation = 1.5708
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 7 )
+
+[node name="TweenVisibilidad" type="Tween" parent="."]
+
+[node name="TimerVisibilidad" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerVisibilidad" to="." method="_on_TimerVisibilidad_timeout"]
