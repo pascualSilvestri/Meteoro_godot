@@ -9,10 +9,17 @@ export var hitpoints:float = 20.0
 #atributos onready
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var canion: Canion = $Canion
+onready var barra_salud:ProgressBar = $BarraSalud
 
 
 #Atributos
 var estado_actual:int = ESTADOS.SPAWM
+
+
+
+func _ready() -> void:
+	barra_salud.set_valores(hitpoints)
+	controlador_estados(estado_actual)
 
 ##metodos custom
 func controlador_estados(nuevo_estado:int)->void:
@@ -39,14 +46,16 @@ func destruir()->void:
 	controlador_estados(ESTADOS.MUERTO)
 
 #Metodos
-func _ready() -> void:
-	controlador_estados(estado_actual)
 
 func recibir_danio(danio:float)->void:
 	hitpoints -= danio
-	$impacto.play()
+	
 	if hitpoints <= 0.0:
 		destruir()
+	
+	barra_salud.controlar_barra(hitpoints,true)
+	$impacto.play()
+	
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawm":

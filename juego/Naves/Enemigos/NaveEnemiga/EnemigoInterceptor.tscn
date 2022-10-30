@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://juego/Naves/NaveBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/enemigo1.png" type="Texture" id=2]
@@ -73,6 +73,18 @@ radius = 210.002
 [sub_resource type="CircleShape2D" id=3]
 radius = 326.014
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.415686, 0.411765, 0.0235294, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.533333, 0.0627451, 0.0627451, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0235294, 0, 0, 1 )
+border_blend = true
+
 [node name="EnemigoInterceptor" groups=["minimapa"] instance=ExtResource( 1 )]
 z_index = 50
 z_as_relative = false
@@ -116,6 +128,13 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
 visible = false
 shape = SubResource( 3 )
+
+[node name="BarraSalud" parent="." index="7"]
+margin_top = 30.0
+margin_right = -21.504
+margin_bottom = 49.0
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
 
 [connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]
 [connection signal="body_exited" from="AreaDisparo" to="." method="_on_AreaDisparo_body_exited"]

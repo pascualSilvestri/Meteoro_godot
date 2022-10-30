@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://juego/Naves/BarraSalud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Naves/NaveBase.gd" type="Script" id=3]
 [ext_resource path="res://juego/Naves/Proyectiles/Canion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://juego/musica/impacto.wav" type="AudioStream" id=8]
@@ -17,5 +18,7 @@ z_index = 50
 [node name="impacto" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "impacto"
+
+[node name="BarraSalud" parent="." instance=ExtResource( 1 )]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

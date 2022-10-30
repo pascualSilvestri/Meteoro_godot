@@ -9,11 +9,13 @@ export var intervalo_spawn:float = 0.8
 
 onready var impacto_SFX:AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var timer_spawn:Timer = $TimerSpawnEnemigo
+onready var barra_salud:ProgressBar = $BarraSalud
 
 var esta_destruido:bool = false
 var posicion_spawn:Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	barra_salud.set_valores(hitpoints)
 	timer_spawn.wait_time = intervalo_spawn
 	$AnimationPlayer.play(elegir_animacion_aleatoria())
 
@@ -23,6 +25,7 @@ func recibir_danio(danio:float)->void:
 	if hitpoints <= 0 and not esta_destruido:
 		esta_destruido = true
 		destruir()
+	barra_salud.set_hitpoints_actual(hitpoints)
 	impacto_SFX.play()
 
 
