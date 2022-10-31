@@ -67,4 +67,4 @@ func _on_nave_destruida(nave:NaveBase,_posicion,_explosiones)->void:
 	if nave is Player:
 		get_tree().call_group("contenedor_info","set_esta_activo",false)
 		get_tree().call_group("contenedor_info","ocultar")
-	
+

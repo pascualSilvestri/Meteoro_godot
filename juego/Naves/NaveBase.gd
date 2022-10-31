@@ -9,7 +9,7 @@ export var hitpoints:float = 20.0
 #atributos onready
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var canion: Canion = $Canion
-onready var barra_salud:ProgressBar = $BarraSalud
+onready var barra_salud:ProgressBar = $BarraSalud 
 
 
 #Atributos

@@ -233,6 +233,7 @@ bus = "impacto"
 
 [node name="AreaRecarga" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 1, 1, 0 )
+collision_layer = 0
 
 [node name="SpriteZonaRecarga" parent="AreaRecarga" index="0"]
 visible = false

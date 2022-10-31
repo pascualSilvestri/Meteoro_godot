@@ -1,7 +1,7 @@
 class_name BarraSalud
 extends ProgressBar
 
-export var siempre_visible:bool = false
+export var siempre_visible:bool = true
 
 onready var tween_visibilidad:Tween = $Tween
 

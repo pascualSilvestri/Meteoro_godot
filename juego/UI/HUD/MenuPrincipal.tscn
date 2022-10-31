@@ -13,6 +13,7 @@ default_font = SubResource( 1 )
 
 [node name="MenuPrincipal" type="Node"]
 script = ExtResource( 2 )
+nivel_inicial = "res://juego/Niveles/Nivel1.tscn"
 
 [node name="StarFieldBackground" parent="." instance=ExtResource( 3 )]
 

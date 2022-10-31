@@ -33,6 +33,6 @@ func rotar_hacia_player()->void:
 	else:
 		canion.set_esta_disparando(true)
 
-func _on_base_destruida(base:Node2D,_pos)->void:
+func _on_base_destruida(base:Node2D, _pos)->void:
 	if base == base_duenia:
 		destruir()

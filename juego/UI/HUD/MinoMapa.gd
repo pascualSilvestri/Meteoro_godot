@@ -9,10 +9,13 @@ var esta_visible:bool = true setget set_esta_visible
 
 onready var zona_renderizado:TextureRect = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa
 onready var icono_player:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoPlayer
+
 onready var icono_base:Sprite =$CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoBaseEnemiga
 onready var icono_estacion:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoBaseRecarga
+
 onready var icono_rele:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoRele
 onready var icono_interceptor:Sprite = $CuadradoMiniMapa/ContenedorDeIconos/ZonaRenderizadoMiniMapa/IconoInterceptor
+
 onready var timer_visible:Timer = $TimerVisibilidad
 onready var tween_visible:Tween = $TweenVisibilidad
 onready var items_mini_mapa:Dictionary = {}

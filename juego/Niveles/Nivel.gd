@@ -12,6 +12,8 @@ export var tiempo_limite:int = 10
 export var musica_nivel:AudioStream = null
 export var musica_combate:AudioStream = null
 
+export(String,FILE,"*.tscn") var prox_nivel = ""
+
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
 onready var contenedor_sector_meteoritos:Node
@@ -45,6 +47,7 @@ func conectar_seniale() -> void:
 	Eventos.connect("nave_en_sector_peligro",self,"_on_nave_en_sector_peligro")
 	Eventos.connect("base_destruida",self,"_on_base_destruida")
 	Eventos.connect("spawn_orbital",self,"_on_spawn_orbital")
+	Eventos.connect("nivel_completado",self,"_on_nivel_completado")
 
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -83,7 +86,7 @@ func _on_nave_destruida(nave:Player, posicion:Vector2,num_explosiones:int)->void
 	crear_explosion(posicion,num_explosiones,0.6,Vector2(100.0,50.0))
 
 
-func _on_base_destruida(pos_parte:Array)->void:
+func _on_base_destruida(nave,pos_parte:Array)->void:
 	for posicion in pos_parte:
 		crear_explosion(posicion)
 		yield(get_tree().create_timer(0.5),"timeout")
@@ -123,11 +126,6 @@ func _on_nave_en_sector_peligro(centro_cam:Vector2,tipo_peligro:String,num_pelig
 		Eventos.emit_signal("cambio_numero_meteoritos",num_peligro)
 	elif tipo_peligro == "Enemy":
 		crear_sector_enemigo(num_peligro)
-
-
-
-
-
 
 
 func crear_sector_meteoritos(centro_cam:Vector2,num_peligro:int)->void:
@@ -219,6 +217,12 @@ func destruir_nivel()->void:
 		Vector2(300.0,200.0)
 	)
 	player.destruir()
+
+
+func _on_nivel_completado()->void:
+	Eventos.emit_signal("nivel_completado")
+	yield(get_tree().create_timer(1.0),"timeout")
+	get_tree().change_scene(prox_nivel)
 
 
 func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:

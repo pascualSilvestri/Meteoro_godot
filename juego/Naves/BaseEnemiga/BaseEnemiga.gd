@@ -36,7 +36,7 @@ func destruir()->void:
 		$Sprites/Sprite3.global_position,
 		$Sprites/Sprite4.global_position
 	]
-	Eventos.emit_signal("base_destruida",posision_partes) # le saque el self y me funciona, le coloco y no funcionas
+	Eventos.emit_signal("base_destruida",self,posision_partes) # le saque el self y me funciona, le coloco y no funcionas
 	Eventos.emit_signal("minimapa_objeto_destruido",self)
 	queue_free()
 
@@ -53,8 +53,12 @@ func spawnear_orbital()->void:
 	$RutaEnemiga.global_position = global_position
 	
 	var new_orbital:EnemigoOrbita = orbital.instance()
-	new_orbital.crear(global_position + posicion_spawn,self,$RutaEnemiga)
+	new_orbital.crear(global_position + posicion_spawn,self,$RutaEnemiga) #cambie posicion_spawn por pos_spawn
 	Eventos.emit_signal("spawn_orbital",new_orbital)
+
+
+
+
 
 func deteccion_cuadrante()->Vector2:
 	var player_objetivo:Player = DatosJuego.get_player_actual()
@@ -79,7 +83,7 @@ func deteccion_cuadrante()->Vector2:
 			$RutaEnemiga.rotation_degrees = 90.0
 			return $PosicionesSpawn/Norte.position
 	return $PosicionesSpawn/Norte.position
-	
+
 func _process(delta: float) -> void:
 	var player_objetivo:Player = DatosJuego.get_player_actual()
 	if not player_objetivo:
