@@ -166,6 +166,7 @@ config/icon="res://juego/Naves/Players/playerShip1.png"
 
 Eventos="*res://juego/Autoloads/Eventos.gd"
 DatosJuego="*res://juego/Autoloads/DatosJuego.gd"
+MusicaJuego="*res://juego/Autoloads/MusicaJuego.tscn"
 
 [display]
 

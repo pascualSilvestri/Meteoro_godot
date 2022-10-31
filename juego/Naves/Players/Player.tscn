@@ -27,6 +27,7 @@ border_color = Color( 0.0235294, 0, 0, 1 )
 border_blend = true
 
 [node name="Player" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
 z_index = 50
 z_as_relative = false
 collision_mask = 22
@@ -44,9 +45,11 @@ estela_maxima = 150
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2( 0.7, 0.7 )
 shape = SubResource( 1 )
 
 [node name="PuntoDerecho" parent="Canion" index="0"]
@@ -56,10 +59,12 @@ position = Vector2( 0, -20 )
 position = Vector2( 0, 20 )
 
 [node name="Escudo" parent="." index="4" instance=ExtResource( 9 )]
+scale = Vector2( 0.7, 0.7 )
 
 [node name="LaserBeam2D" parent="." index="5" instance=ExtResource( 5 )]
 
 [node name="EstelaPuntoInicio" parent="." index="6" instance=ExtResource( 2 )]
+scale = Vector2( 0.7, 0.7 )
 
 [node name="MotorSFX" parent="." index="7" instance=ExtResource( 7 )]
 

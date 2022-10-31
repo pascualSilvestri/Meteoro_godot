@@ -100,6 +100,7 @@ border_color = Color( 0.00784314, 0, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=7]
 
 [node name="EstacionRecarga" type="Node2D"]
+scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 3 )
 
 [node name="AreaColision" type="Area2D" parent="."]

@@ -6,8 +6,8 @@
 [ext_resource path="res://juego/Naves/Proyectiles/Proyectil_enemigo.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 39.0
-height = 54.0
+radius = 21.9999
+height = 30.0002
 
 [sub_resource type="Animation" id=2]
 resource_name = "spawm"
@@ -62,6 +62,7 @@ velocidad = 400.0
 
 [node name="Sprite" parent="." index="0"]
 rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
 z_index = 30
 texture = ExtResource( 2 )
 
