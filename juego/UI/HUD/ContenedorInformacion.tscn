@@ -90,7 +90,6 @@ font_data = ExtResource( 2 )
 default_font = SubResource( 1 )
 
 [node name="ContenedorInformacion" type="NinePatchRect"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 30.0
 margin_top = 31.0

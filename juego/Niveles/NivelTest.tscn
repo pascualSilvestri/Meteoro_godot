@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://juego/Naves/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Niveles/Nivel.gd" type="Script" id=2]
@@ -8,10 +8,9 @@
 [ext_resource path="res://juego/SectorMeteorito/SectorMeteoritos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://juego/Naves/Enemigos/Meteoro.tscn" type="PackedScene" id=7]
 [ext_resource path="res://juego/Naves/Enemigos/Meteoros/ExplosionMeteorito.tscn" type="PackedScene" id=8]
-[ext_resource path="res://juego/Fondos/negro.png" type="Texture" id=9]
+[ext_resource path="res://juego/Fondos/StarFieldBackground.tscn" type="PackedScene" id=9]
 [ext_resource path="res://juego/Niveles/CamaraJuego.gd" type="Script" id=10]
 [ext_resource path="res://juego/Naves/EstacionRecarga/ReleMasa.tscn" type="PackedScene" id=11]
-[ext_resource path="res://juego/Niveles/fondo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://juego/Naves/Enemigos/NaveEnemiga/EnemigoInterceptor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=14]
 [ext_resource path="res://juego/UI/HUD/HUD.tscn" type="PackedScene" id=15]
@@ -32,12 +31,9 @@ tiempo_limite = 99
 musica_nivel = ExtResource( 17 )
 musica_combate = ExtResource( 18 )
 
-[node name="HUD" parent="." instance=ExtResource( 15 )]
+[node name="StarFieldBackground" parent="." instance=ExtResource( 9 )]
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 573, 268 )
-scale = Vector2( 20.7539, 12.1797 )
-texture = ExtResource( 9 )
+[node name="HUD" parent="." instance=ExtResource( 15 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
@@ -78,8 +74,6 @@ script = ExtResource( 10 )
 [node name="TweenZoom" type="Tween" parent="CameraNivel"]
 
 [node name="TweenCamara" type="Tween" parent="."]
-
-[node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 490, 680 )

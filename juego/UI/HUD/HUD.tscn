@@ -82,10 +82,20 @@ anims/defaul = SubResource( 4 )
 anims/fade_in = SubResource( 2 )
 
 [node name="InfoZonaRegarga" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 1 )
 margin_left = 64.0
 margin_top = 65.0
 margin_right = 223.0
 margin_bottom = 136.0
+
+[node name="AnimationPlayer" parent="InfoZonaRegarga" index="0"]
+autoplay = "mostrar"
+
+[node name="Label" parent="InfoZonaRegarga" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="InfoMeteoritos" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 1 )
@@ -95,8 +105,10 @@ margin_right = 261.0
 margin_bottom = 1069.0
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
-margin_right = 200.0
-margin_bottom = 81.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="InfoTiempoResta" parent="." groups=["contenedor_info"] instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 1 )
@@ -106,23 +118,38 @@ margin_right = 1871.0
 margin_bottom = 133.0
 
 [node name="Label" parent="InfoTiempoResta" index="1"]
-margin_top = 2.0
-margin_bottom = 74.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="InfoLaser" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 1 )
 margin_left = 1693.0
 margin_top = 946.0
 margin_right = 1852.0
 margin_bottom = 1023.0
 
+[node name="Label" parent="InfoLaser" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
 [node name="infoEscudo" parent="." groups=["contenedor_info"] instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 1 )
 margin_left = 1693.0
 margin_top = 852.0
 margin_right = 1852.0
 margin_bottom = 929.0
 
 [node name="Label" parent="infoEscudo" index="1"]
-modulate = Color( 1, 1, 1, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 text = "Energia Escudo"
 
 [node name="MinoMapa" parent="." instance=ExtResource( 5 )]
@@ -130,4 +157,5 @@ text = "Energia Escudo"
 [editable path="InfoZonaRegarga"]
 [editable path="InfoMeteoritos"]
 [editable path="InfoTiempoResta"]
+[editable path="InfoLaser"]
 [editable path="infoEscudo"]
