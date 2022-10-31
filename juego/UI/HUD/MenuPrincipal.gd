@@ -9,3 +9,7 @@ func _ready() -> void:
 func _on_Button_pressed() -> void:
 	MusicaJuego.play_boton()
 	get_tree().change_scene(nivel_inicial)
+
+
+func _on_BtnSalir_pressed() -> void:
+	get_tree().quit()

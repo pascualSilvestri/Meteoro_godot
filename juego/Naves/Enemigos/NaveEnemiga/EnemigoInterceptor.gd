@@ -6,7 +6,7 @@ enum ESTADO_IA{IDLE,ATACANDOQ,ATANANDOP,PERSECUSION}
 export var potencia_max: float = 800.0
 
 
-var estado_ia_actual:int=ESTADO_IA.IDLE
+var estado_ia_actual:int=ESTADO_IA.ATACANDOQ
 var potencia_actual:float=0.0
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
