@@ -6,11 +6,7 @@
 [node name="ContenedorInformacionEnergia" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="AnimationPlayer" parent="." index="0"]
-autoplay = ""
-
 [node name="Label" parent="." index="1"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.0
 margin_right = 158.0
 margin_bottom = 50.0
