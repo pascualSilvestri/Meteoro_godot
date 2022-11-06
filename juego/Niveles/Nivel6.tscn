@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+
+[node name="Nivel6" instance=ExtResource( 1 )]
+prox_nivel = "res://juego/UI/HUD/MenuPrincipal.tscn"
+
+[node name="StarFieldBackground" parent="." index="0"]
+color_fondo = Color( 0.0235294, 0.0235294, 0.00784314, 1 )
+
+[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" index="0" groups=["minimapa"] instance=ExtResource( 2 )]
+
+[editable path="HUD"]
+[editable path="HUD/InfoZonaRegarga"]
+[editable path="HUD/InfoMeteoritos"]
+[editable path="HUD/InfoTiempoResta"]
+[editable path="HUD/InfoLaser"]
+[editable path="HUD/infoEscudo"]
+[editable path="HUD/MinoMapa"]

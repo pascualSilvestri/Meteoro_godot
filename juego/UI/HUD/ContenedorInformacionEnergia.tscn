@@ -13,7 +13,8 @@ margin_bottom = 50.0
 text = "Energia Laser"
 
 [node name="ProgressBar" type="ProgressBar" parent="." index="3"]
-margin_left = 13.0
+margin_left = 17.0
 margin_top = 46.0
-margin_right = 148.0
+margin_right = 152.0
 margin_bottom = 66.0
+percent_visible = false

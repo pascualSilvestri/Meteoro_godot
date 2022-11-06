@@ -51,6 +51,7 @@ script = ExtResource( 10 )
 [node name="TweenCamara" type="Tween" parent="."]
 
 [node name="RestarNivel" type="Timer" parent="."]
+one_shot = true
 
 [node name="ActualizarTimer" type="Timer" parent="."]
 
@@ -60,3 +61,11 @@ position = Vector2( 490, 680 )
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
 [connection signal="timeout" from="RestarNivel" to="." method="_on_RestarNivel_timeout"]
 [connection signal="timeout" from="ActualizarTimer" to="." method="_on_ActualizarTimer_timeout"]
+
+[editable path="HUD"]
+[editable path="HUD/InfoZonaRegarga"]
+[editable path="HUD/InfoMeteoritos"]
+[editable path="HUD/InfoTiempoResta"]
+[editable path="HUD/InfoLaser"]
+[editable path="HUD/infoEscudo"]
+[editable path="HUD/MinoMapa"]

@@ -1,5 +1,5 @@
 class_name EnemigoOrbita
-extends "res://EnemigoIntercepta.gd"
+extends EnemigoBase
 
 export  var rango_max_ataque:float  = 600.0
 export var velocidad:float = 400.0

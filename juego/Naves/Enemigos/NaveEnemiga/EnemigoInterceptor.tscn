@@ -116,17 +116,16 @@ anims/defaul = SubResource( 5 )
 anims/spawm = SubResource( 6 )
 
 [node name="AreaDisparo" type="Area2D" parent="." index="5"]
-collision_layer = 0
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisparo" index="0"]
-visible = false
 shape = SubResource( 2 )
 
 [node name="AreaDeteccion" type="Area2D" parent="." index="6"]
+position = Vector2( -5, 0 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
-visible = false
 shape = SubResource( 3 )
 
 [node name="BarraSalud" parent="." index="7"]
@@ -140,3 +139,5 @@ custom_styles/bg = SubResource( 9 )
 [connection signal="body_exited" from="AreaDisparo" to="." method="_on_AreaDisparo_body_exited"]
 [connection signal="body_entered" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_entered"]
 [connection signal="body_exited" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_exited"]
+
+[editable path="Canion"]

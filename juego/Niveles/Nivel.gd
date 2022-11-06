@@ -12,7 +12,7 @@ export var tiempo_limite:int = 10
 export var musica_nivel:AudioStream = null
 export var musica_combate:AudioStream = null
 
-export(String,FILE,"*.tscn") var prox_nivel = ""
+export(String, FILE, "*.tscn") var prox_nivel = ""
 
 onready var contenedor_proyectiles:Node
 onready var contenedor_meteoritos:Node
@@ -220,7 +220,7 @@ func destruir_nivel()->void:
 
 
 func _on_nivel_completado()->void:
-	Eventos.emit_signal("nivel_completado")
+	Eventos.emit_signal("nivel_terminado")
 	yield(get_tree().create_timer(1.0),"timeout")
 	get_tree().change_scene(prox_nivel)
 

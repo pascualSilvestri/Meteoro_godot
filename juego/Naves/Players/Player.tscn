@@ -29,7 +29,7 @@ border_blend = true
 [node name="Player" instance=ExtResource( 1 )]
 z_index = 50
 z_as_relative = false
-collision_mask = 22
+collision_mask = 54
 physics_material_override = ExtResource( 8 )
 gravity_scale = 0.0
 contacts_reported = 2

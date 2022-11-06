@@ -101,7 +101,7 @@ func obtener_objetos_minimapa()->void:
 				sprite_icono = icono_base.duplicate()
 			elif objeto is EstacionRecarga:
 				sprite_icono = icono_estacion.duplicate()
-			elif objeto is EnemigoIntercepta:
+			elif objeto is EnemigoInterceptor:
 				sprite_icono = icono_interceptor.duplicate()
 			elif objeto is ReleMasa:
 				sprite_icono = icono_rele.duplicate()

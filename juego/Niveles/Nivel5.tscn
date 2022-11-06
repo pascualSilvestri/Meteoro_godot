@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+
+[node name="Nivel5" instance=ExtResource( 1 )]
+prox_nivel = "res://juego/Niveles/Nivel6.tscn"
+
+[node name="StarFieldBackground" parent="." index="0"]
+color_fondo = Color( 0.137255, 0.00392157, 0.00392157, 1 )
+
+[editable path="HUD"]
+[editable path="HUD/InfoZonaRegarga"]
+[editable path="HUD/InfoMeteoritos"]
+[editable path="HUD/InfoTiempoResta"]
+[editable path="HUD/InfoLaser"]
+[editable path="HUD/infoEscudo"]
+[editable path="HUD/MinoMapa"]

@@ -1,5 +1,5 @@
-class_name EnemigoIntercepta
-extends EnemigoInterceptor
+class_name EnemigoInterceptor
+extends EnemigoBase
 
 
 enum ESTADO_IA{IDLE,ATACANDOQ,ATANANDOP,PERSECUSION}
@@ -7,13 +7,16 @@ export var potencia_max: float = 800.0
 
 
 var estado_ia_actual:int=ESTADO_IA.ATACANDOQ
-var potencia_actual:float=0.0
+var potencia_actual:float=0.9
+
+func _ready() -> void:
+	canion.set_esta_disparando(true)
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	linear_velocity += dir_player.normalized() * potencia_actual * state.get_step()
 	
-	linear_velocity.x = clamp(linear_velocity.x, -potencia_max,potencia_max)
-	linear_velocity.y = clamp(linear_velocity.y, -potencia_max,potencia_max)
+	linear_velocity.x = clamp(linear_velocity.x, -potencia_max, potencia_max)
+	linear_velocity.y = clamp(linear_velocity.y, -potencia_max, potencia_max)
 
 func controlador_estados_ia(nuevo_estado:int)->void:
 	match nuevo_estado:
