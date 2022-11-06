@@ -1,12 +1,52 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juego/Naves/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel5" instance=ExtResource( 1 )]
-prox_nivel = "res://juego/Niveles/Nivel6.tscn"
+prox_nivel = "res://juego/UI/HUD/MenuPrincipal.tscn"
 
 [node name="StarFieldBackground" parent="." index="0"]
 color_fondo = Color( 0.137255, 0.00392157, 0.00392157, 1 )
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
+position = Vector2( 3767, 1305 )
+rotation = 1.58362
+tipo_Peligro = "Meteorite"
+numero_peligros = 8
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 4 )]
+position = Vector2( -5425, -1939 )
+rotation = 3.08612
+tipo_Peligro = "Meteorite"
+numero_peligros = 8
+
+[node name="SectorDePeligro3" parent="TriggersLluviaMeteoritos" index="2" instance=ExtResource( 4 )]
+position = Vector2( -752, -2248 )
+rotation = 3.37551
+tipo_Peligro = "Meteorite"
+numero_peligros = 8
+
+[node name="SectorDePeligro2" parent="TriggersInterseptor" index="0" instance=ExtResource( 4 )]
+position = Vector2( -2085, 1695 )
+numero_peligros = 5
+
+[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" index="0" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 6283, 1843 )
+
+[node name="BaseEnemiga2" parent="ContenedorBaseEnemiga" index="1" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( -5921, 1650 )
+
+[node name="BaseEnemiga3" parent="ContenedorBaseEnemiga" index="2" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( -5033, -5147 )
+
+[node name="EstacionRecarga" parent="ContenedorEstacion" index="0" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 1453, 1682 )
+
+[node name="EstacionRecarga2" parent="ContenedorEstacion" index="1" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 217, -5038 )
 
 [editable path="HUD"]
 [editable path="HUD/InfoZonaRegarga"]

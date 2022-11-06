@@ -11,9 +11,21 @@ prox_nivel = "res://juego/Niveles/Nivel3.tscn"
 [node name="StarFieldBackground" parent="." index="0"]
 color_fondo = Color( 0.384314, 0.0431373, 0.0431373, 1 )
 
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
+position = Vector2( 2180, 1636 )
+tipo_Peligro = "Meteorite"
+numero_peligros = 4
+
+[node name="CollisionShape2D" parent="TriggersLluviaMeteoritos/SectorDePeligro2" index="0"]
+position = Vector2( 60, 107 )
+
 [node name="SectorDePeligro" parent="TriggersInterseptor" index="0" instance=ExtResource( 4 )]
-position = Vector2( 1104, 1636 )
+position = Vector2( 2180, 1636 )
 tipo_Peligro = "Enemy"
+numero_peligros = 4
+
+[node name="CollisionShape2D" parent="TriggersInterseptor/SectorDePeligro" index="0"]
+position = Vector2( -1959, 13 )
 
 [node name="BaseEnemiga" parent="ContenedorBaseEnemiga" index="0" groups=["minimapa"] instance=ExtResource( 2 )]
 position = Vector2( 1237, 2625 )
@@ -31,3 +43,5 @@ position = Vector2( -775, 383 )
 [editable path="HUD/InfoLaser"]
 [editable path="HUD/infoEscudo"]
 [editable path="HUD/MinoMapa"]
+[editable path="TriggersLluviaMeteoritos/SectorDePeligro2"]
+[editable path="TriggersInterseptor/SectorDePeligro"]

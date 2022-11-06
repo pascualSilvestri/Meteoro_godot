@@ -1,12 +1,41 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juego/Naves/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" instance=ExtResource( 1 )]
+tiempo_limite = 130
 prox_nivel = "res://juego/Niveles/Nivel4.tscn"
 
 [node name="StarFieldBackground" parent="." index="0"]
 color_fondo = Color( 0.14902, 0.0156863, 0.262745, 1 )
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
+position = Vector2( 3767, -996 )
+tipo_Peligro = "Meteorite"
+numero_peligros = 5
+
+[node name="SectorDePeligro" parent="TriggersInterseptor" index="0" instance=ExtResource( 4 )]
+position = Vector2( 3623, 2584 )
+tipo_Peligro = "Enemy"
+numero_peligros = 6
+
+[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" index="0" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 577, -1063 )
+
+[node name="BaseEnemiga2" parent="ContenedorBaseEnemiga" index="1" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 1742, 2227 )
+
+[node name="BaseEnemiga3" parent="ContenedorBaseEnemiga" index="2" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 3564, 387 )
+
+[node name="EstacionRecarga" parent="ContenedorEstacion" index="0" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 6302, -928 )
+
+[node name="EstacionRecarga2" parent="ContenedorEstacion" index="1" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 5523, 3035 )
 
 [editable path="HUD"]
 [editable path="HUD/InfoZonaRegarga"]

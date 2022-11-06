@@ -1,12 +1,57 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/Naves/BaseEnemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juego/Naves/EstacionRecarga/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel4" instance=ExtResource( 1 )]
+tiempo_limite = 130
 prox_nivel = "res://juego/Niveles/Nivel5.tscn"
 
 [node name="StarFieldBackground" parent="." index="0"]
 color_fondo = Color( 0.0392157, 0.156863, 0.25098, 1 )
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
+position = Vector2( 8201, 427 )
+tipo_Peligro = "Meteorite"
+numero_peligros = 7
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 4 )]
+position = Vector2( 2819, 470 )
+tipo_Peligro = "Meteorite"
+numero_peligros = 5
+
+[node name="SectorDePeligro2" parent="TriggersInterseptor" index="0" instance=ExtResource( 4 )]
+position = Vector2( 4100, 4699 )
+tipo_Peligro = "Enemy"
+numero_peligros = 5
+
+[node name="SectorDePeligro3" parent="TriggersInterseptor" index="1" instance=ExtResource( 4 )]
+position = Vector2( -2136, -2178 )
+tipo_Peligro = "Enemy"
+numero_peligros = 5
+
+[node name="BaseEnemiga" parent="ContenedorBaseEnemiga" index="0" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( -4870, -124 )
+
+[node name="BaseEnemiga2" parent="ContenedorBaseEnemiga" index="1" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 6962, -2217 )
+
+[node name="BaseEnemiga3" parent="ContenedorBaseEnemiga" index="2" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 11575, 816 )
+
+[node name="BaseEnemiga4" parent="ContenedorBaseEnemiga" index="3" groups=["minimapa"] instance=ExtResource( 2 )]
+position = Vector2( 1153, 6198 )
+
+[node name="EstacionRecarga" parent="ContenedorEstacion" index="0" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( -3292, 2633 )
+
+[node name="EstacionRecarga2" parent="ContenedorEstacion" index="1" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 6653, 2900 )
+
+[node name="EstacionRecarga3" parent="ContenedorEstacion" index="2" groups=["minimapa"] instance=ExtResource( 3 )]
+position = Vector2( 1547, -3480 )
 
 [editable path="HUD"]
 [editable path="HUD/InfoZonaRegarga"]
