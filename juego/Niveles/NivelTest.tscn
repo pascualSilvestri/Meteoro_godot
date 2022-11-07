@@ -7,3 +7,11 @@
 
 [node name="EnemigoInterceptor" parent="TriggersInterseptor" index="0" instance=ExtResource( 2 )]
 position = Vector2( 542, 470 )
+
+[editable path="HUD"]
+[editable path="HUD/InfoZonaRegarga"]
+[editable path="HUD/InfoMeteoritos"]
+[editable path="HUD/InfoTiempoResta"]
+[editable path="HUD/InfoLaser"]
+[editable path="HUD/infoEscudo"]
+[editable path="HUD/MinoMapa"]

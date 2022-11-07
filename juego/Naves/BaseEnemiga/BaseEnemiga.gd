@@ -82,12 +82,12 @@ func deteccion_cuadrante()->Vector2:
 	return $PosicionesSpawn/Norte.position
 
 func _process(delta: float) -> void:
-	#var player_objetivo:Player = DatosJuego.get_player_actual()
-	#if not player_objetivo:
-	#	return
+	var player_objetivo:Player = DatosJuego.get_player_actual()
+	if not player_objetivo:
+		return
 	pass
-	#var dir_player:Vector2 = player_objetivo.global_position - global_position
-	#var angulo_player:float = rad2deg(dir_player.angle())
+	var dir_player:Vector2 = player_objetivo.global_position - global_position
+	var angulo_player:float = rad2deg(dir_player.angle())
 
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
